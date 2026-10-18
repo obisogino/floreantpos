@@ -1,0 +1,65 @@
+# Java / Maven build output
+/target/
+/build/
+/dist/
+/bin/
+/out/
+/classes/
+*.class
+/*.jar
+/*.zip
+/*.rar
+dependency-reduced-pom.xml
+.flattened-pom.xml
+pom.xml.versionsBackup
+pom.xml.releaseBackup
+release.properties
+
+# Local IDE metadata; keep shared Eclipse project and compiler settings tracked
+/.factorypath
+/.settings/org.eclipse.jdt.apt.core.prefs
+/.metadata/
+/.idea/
+/.vscode/
+*.iml
+*.ipr
+*.iws
+
+# Downloaded runtime plugins and the saved original inventory plugin
+/plugins/*.jar
+/local-lib/com/orocube/fp-1707-inventory/
+
+# Local POS configuration and live Derby databases; keep the seed ZIP tracked
+/floreantpos.config.properties
+/posdb/
+/database/derby-single/posdb/
+/database/derby-server/posdb/
+
+# Logs and JVM diagnostic files
+*.log
+*.log.*
+*.hprof
+hs_err_pid*
+replay_pid*
+.attach_pid*
+
+# Local environment files; keep shareable examples visible
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+
+# Python helper caches and virtual environments
+__pycache__/
+*.py[cod]
+/.venv/
+/venv/
+
+# Editor temporary files and OS metadata
+*~
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+Desktop.ini
