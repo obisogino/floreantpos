@@ -1,0 +1,89 @@
+zip_path	bytes	sha256	embedded_maven_coordinates
+database/derby-server/lib/derby.jar	3232770	2c40eb581e5221ab33c7c796979b49ce404e7e393357c58f7bcdb30a09efca72	not recorded
+database/derby-server/lib/derbynet.jar	272626	60420647ea4dec5fb5d2e44768411e33d2358f517c292073cc4bdd41f70deddc	not recorded
+database/derby-server/lib/derbytools.jar	230725	3c695cbcde7e9e68156e55d6a0d85ddb8d8a0e770ef9b48375c07ec960574f56	not recorded
+floreantpos.jar	3657131	bfdf30bf78b765dbd756d62fd1b35b56a1a41b2daf5a4ad40b95cd060c36c66b	org.floreantpos:floreantpos:1.4-SNAPSHOT
+lib/anet-java-sdk-1.8.1.jar	207702	8e68806dcdfdee170eb436cc3b8418cfa83e77e3036c66ff6891963be450454c	net.authorize:anet-java-sdk:1.8.1
+lib/antlr-2.7.6.jar	443432	df74f330d36526ff9e717731fd855152fcff51618f0b5785d0049022f89d568b	not recorded
+lib/asm-1.5.3.jar	26361	c9c59bc40d0f3947c79dcd8d04a61d363f9764ce8208fdd1e3d88d38f7849582	not recorded
+lib/asm-attrs-1.5.3.jar	16757	d505db8910020875a67f6c04b5cf41a2109717d339012a0550e33069aed10a0a	not recorded
+lib/asm-commons-3.0.jar	25542	32b516ca5738b87077afac83d08bae7e3f3cea4ce6ff6d7a18506b38c3729640	not recorded
+lib/asm-tree-3.0.jar	21512	ad82cad09bb2f7752d4ddb8ebb2aaf893ecc4a801bcbe813c75027830f496255	not recorded
+lib/barbecue-1.5-beta1.jar	91079	f7e27c911d5174e2e8c6404939fab49d351b9957b5d7e6a833bc3b3ec942e048	not recorded
+lib/c3p0-0.9.1.2.jar	610790	2b816923ff35675557618db580b5eb202c2cd79b4cb6018fd2c9b9fc15af88cc	not recorded
+lib/cglib-2.1_3.jar	282338	125c9c791d00618a0025a8132c4ba2da05fbcbe14d6c85aecf2a4039c096ac13	not recorded
+lib/commons-beanutils-1.8.0.jar	231320	13543939b86e3bb8339019d6acc08ecb04e4b095a82baf984e505b3afb54742a	commons-beanutils:commons-beanutils:1.8.0
+lib/commons-beanutils-core-1.7.0.jar	168760	dbdac3b81a1c22a1d09b8c4a1c55b00af4767bd068838651c04c2f130172a207	not recorded
+lib/commons-cli-1.2.jar	41123	e7cd8951956d349b568b7ccfd4f5b2529a8c113e67c32b028f52ffda371259d9	commons-cli:commons-cli:1.2
+lib/commons-codec-1.9.jar	263965	ad19d2601c3abf0b946b5c3a4113e226a8c1e3305e395b90013b78dd94a723ce	commons-codec:commons-codec:1.9
+lib/commons-collections-3.1.jar	559366	c1547d185ba6880bcc2da261c5f7533512b6ffdbbc1898db5b793c0cb830fcf0	not recorded
+lib/commons-configuration-1.2.jar	163822	f889e127ff72e19ab49aedc858c54841c5c23b2719732c5811b3ecd2e12e1cbb	not recorded
+lib/commons-digester-1.7.jar	139966	c89d540a3323671a7b6da04b4e6d0158c21449cd419534aab63a7b867e9ef52a	not recorded
+lib/commons-io-2.14.0.jar	494227	e35d1df7232568ed4b81d9a9ed94a0159b3ff6cf1915cc21eef5cb55d7b157a2	commons-io:commons-io:2.14.0
+lib/commons-lang-2.6.jar	284220	50f11b09f877c294d56f24463f47d28f929cf5044f648661c0f0cfbae9a2f49c	commons-lang:commons-lang:2.6
+lib/commons-lang3-3.3.2.jar	412739	6b81d10754dadf184d386011486e6509c2cc0c3d33565ced4fb4402b9413d47d	org.apache.commons:commons-lang3:3.3.2
+lib/commons-logging-1.0.4.jar	38015	e94af49749384c11f5aa50e8d0f5fe679be771295b52030338d32843c980351e	not recorded
+lib/commons-logging-api-1.0.4.jar	26202	e168814e138fd3c00ba5e6dd4db0cf64896dfaa0f3a890d0d66652088fd01816	not recorded
+lib/commons-validator-1.4.0.jar	176897	50cee086060f86238c51f83900299552f76f8054e38c34557c7139b7e27a6c54	commons-validator:commons-validator:1.4.0
+lib/derby-10.14.2.0.jar	3232770	2c40eb581e5221ab33c7c796979b49ce404e7e393357c58f7bcdb30a09efca72	not recorded
+lib/derbyclient-10.14.2.0.jar	588394	2fdcd2a01cec01315c497e321940b7d39c1e8310d31922b3a0099ccefdd8bfbd	not recorded
+lib/derbynet-10.14.2.0.jar	272626	60420647ea4dec5fb5d2e44768411e33d2358f517c292073cc4bdd41f70deddc	not recorded
+lib/derbytools-10.14.2.0.jar	230725	3c695cbcde7e9e68156e55d6a0d85ddb8d8a0e770ef9b48375c07ec960574f56	not recorded
+lib/dom4j-1.6.1.jar	313898	593552ffea3c5823c6602478b5002a7c525fd904a3c44f1abe4065c22edfac73	not recorded
+lib/ecs-1.4.2.jar	388169	b7140e42af61601390a44bd80da35fd847e2363bfeaeccdd568ef9f2cd40f91c	not recorded
+lib/ehcache-1.2.3.jar	208048	d234073597b1468147f321fb097f6c4b975316a40f9d646ba2d084b366318c2f	not recorded
+lib/ejb3-persistence-1.0.1.GA.jar	52847	ebbc32c12fd77af31e1617d68ea7c25500a4f2f6b043b7d56b714af09f25450d	not recorded
+lib/floreantpos-1.4-SNAPSHOT.jar	3657131	bfdf30bf78b765dbd756d62fd1b35b56a1a41b2daf5a4ad40b95cd060c36c66b	org.floreantpos:floreantpos:1.4-SNAPSHOT
+lib/forms-1.2.1.jar	118407	df801e4d1ced23fbabd70d02d685179bf47894a9305787ed3a4dab5b58d030a9	com.jgoodies:forms:1.2.1
+lib/forms_rt-7.0.3.jar	327696	51d100f7f19e85bce8fd8fda551e433188174994f470d6e9f51c7f7b2227d9e3	not recorded
+lib/foxtrot-2.0.jar	25676	4cdce2f57b9679040b37c65ab6d4196a3c8e30c8dc9a59c126bce7b543a32eeb	not recorded
+lib/google-maps-services-0.1.12.jar	123079	1f8eb42d01191b4f297c740b1a24ee5ee8574662045fc9307788d710d5bc4444	not recorded
+lib/gson-2.3.1.jar	210856	13f44a2f6ead058da80a91ee650c073871942468e684a9bf6a0d0319138924ce	not recorded
+lib/hibernate-3.2.6.ga.jar	2274768	d916b78300296b55262e2efc7ca7561b27f26af9a95d71e238732bdd4da8e587	not recorded
+lib/hibernate-annotations-3.3.1.GA.jar	280196	a86d21e642ad4f6859699e2056e49f3eec78ce09a77d87c643a494c90c61f713	not recorded
+lib/hibernate-commons-annotations-3.0.0.ga.jar	66426	32c186f34a3e0f8bbf3e8c78124bc3b03d1fbd623c4baadb495254aa172e8044	not recorded
+lib/httpclient-4.5.14.jar	785639	c8bc7e1c51a6d4ce72f40d2ebbabf1c4b68bfe76e732104b04381b493478e9d6	org.apache.httpcomponents:httpclient:4.5.14
+lib/httpcore-4.0.1.jar	172888	3b6bf92affa85d4169a91547ce3c7093ed993b41ad2df80469fc768ad01e6b6b	org.apache.httpcomponents:httpcore:4.0.1
+lib/jakarta.activation-1.2.2.jar	68453	02156773e4ae9d048d14a56ad35d644bee9f1052a791d072df3ded3c656e6e1a	com.sun.activation:jakarta.activation:1.2.2
+lib/jakarta.xml.bind-api-2.3.3.jar	115638	c04539f472e9a6dd0c7685ea82d677282269ab8e7baca2e14500e381e0c6cec5	jakarta.xml.bind:jakarta.xml.bind-api:2.3.3
+lib/jasperreports-4.0.1.jar	3089349	469c23dfdb33661df73d5cc71a61981251b1f2e35b74895fde05e256398aba46	net.sf.jasperreports:jasperreports:4.0.1
+lib/javax.activation-api-1.2.0.jar	56674	43fdef0b5b6ceb31b0424b208b930c74ab58fac2ceeb7b3f6fd3aeb8b5ca4393	javax.activation:javax.activation-api:1.2.0
+lib/javax.json-1.0.4.jar	85147	0e1dec40a1ede965941251eda968aeee052cc4f50378bc316cc48e8159bdbeb4	org.glassfish:javax.json:1.0.4
+lib/javax.json-api-1.0.jar	19754	1924ecfef6e9ba57c4425cf4b278192950037e5ca65d7d2d77e7d87ddaef8738	javax.json:javax.json-api:1.0
+lib/jaxb-api-2.3.1.jar	128076	88b955a0df57880a26a74708bc34f74dcaf8ebf4e78843a28b50eae945732b06	javax.xml.bind:jaxb-api:2.3.1
+lib/jaxb-core-2.3.0.1.jar	254858	d2ecba63615f317a11fb55c6468f6a9480f6411c10951d9881bafd9a9a8d0467	com.sun.istack:istack-commons-runtime:3.0.5; com.sun.xml.bind:jaxb-core:2.3.0.1; org.glassfish.jaxb:jaxb-core:2.3.0.1; org.glassfish.jaxb:txw2:2.3.0.1
+lib/jaxb-impl-2.3.3.jar	1133924	e5178d0c7948247f75a13c689bf36f4d5d4910a121f712aa3b20ae94377069d8	com.sun.istack:istack-commons-runtime:3.0.11; com.sun.xml.bind:jaxb-impl:2.3.3; org.glassfish.jaxb:jaxb-runtime:2.3.3; org.glassfish.jaxb:txw2:2.3.3
+lib/jaxen-1.1.4.jar	226161	5da6c3bfc2aaf0fd7d43dc76829164a815fb9a9567eca9b7ccf67998fa70e3b5	jaxen:jaxen:1.1.4
+lib/jcommon-1.0.15.jar	309294	acf524cbcd1ba61db2593b16b75a35fc1c7c58fd4d2d36e16ebb585d0f2cc509	not recorded
+lib/jdom-1.0.jar	153253	3b23bc3979aec14a952a12aafc483010dc57579775f2ffcacef5256a90eeda02	not recorded
+lib/jdom2-2.0.6.1.jar	327806	0b20f45e3a0fd8f0d12cdc5316b06776e902b1365db00118876f9175c60f302c	not recorded
+lib/jdtcore-3.1.0.jar	3555707	b163be93b2131f97dd23ee03c935b34f48c17e74d8f60b644747528ea024e88e	not recorded
+lib/jersey-client-1.18.1.jar	133906	4b7fa6350a9771dcd5645bea7611e6f7831f5cd5bc6071c128696f95d81d6837	com.sun.jersey:jersey-client:1.18.1
+lib/jersey-core-1.18.1.jar	479324	8fdba4e61638f8c94e81033e27fbf2cb5e9e4be25015912fc58e7718ed684406	com.sun.jersey:jersey-core:1.18.1
+lib/jfreechart-1.0.12.jar	1368681	b90e35874f89cf910c20214dce84c4906a09b908e4761ac32e248fe1b36102c3	not recorded
+lib/jide-oss-3.6.1.jar	1933618	1c675ce6e741e109091b9d8788b650596af793f922ab3e43f1520df68aba355b	com.jidesoft:jide-oss:3.6.1
+lib/jna-4.2.2.jar	1137286	1f38af54e06c6e6f6dbf39ba2c052b952dea5dddb4871127b34639ddeb11bdbe	not recorded
+lib/jna-platform-4.2.2.jar	1856200	32aca873a4cb14721d939bbc8287a828919c05e8e1040b3fe8290f6128cdecca	not recorded
+lib/joda-time-2.3.jar	581571	602fd8006641f8b3afd589acbd9c9b356712bdcf0f9323557ec8648cd234983b	joda-time:joda-time:2.3
+lib/jspf.core-1.0.2.jar	327271	94f287909bc8fb0970819f165cf091b08f1787053c9875824b6deb9a12ea0185	not recorded
+lib/jssc-2.8.0.jar	153562	be0792d66354213b245f434adddb008597d03d5ad65225d4c5f37cb3982d5227	not recorded
+lib/jta-1.1.jar	15071	b8ec163b4a47bad16f9a0b7d03c3210c6b0a29216d768031073ac20817c0ba50	not recorded
+lib/log4j-1.2.16.jar	481535	7ae3fdde7ab0cae4735a2aec04381ad9b6e25c93d24205f3ed315d9866f12fe1	log4j:log4j:1.2.16
+lib/log4j-api-2.25.4.jar	351127	c4b642a7f047275215de117e0e3847eb2c7711d84a0aa7433e7b3c096daf341d	org.apache.logging.log4j:log4j-api:2.25.4
+lib/log4j-core-2.25.4.jar	2023860	10fee2c0485d54fa44ee75d314f6295508f7b932281873db61a91b88073200e6	org.apache.logging.log4j:log4j-core:2.25.4
+lib/looks-2.2.2.jar	421573	0976a84bc8e247f189a912e18e6b6fd32c622a5074732f351854e603126975b0	com.jgoodies:looks:2.2.2
+lib/magnetictrackparser-1.0.jar	32621	80abae103362af0e0e2ba452057af0fa66f431eab5b792dd42ab42283f1ede21	us.fatehi:magnetictrackparser:1.0
+lib/metawidget-all-3.9.jar	871394	5904dad95ba5454e9d1b58a88fd2cd440c8da99c0eb9e9b7a84d36abeae8c16e	not recorded
+lib/miglayout-3.7.4.jar	201819	f3bf5ab4041767da532e11e78a49a183da499d1a54ba539232d833b75f965667	not recorded
+lib/mysql-connector-java-8.0.28.jar	2476480	a00ccdf537ff50e50067b989108c2235197ffb65e197149bbb669db843cd1c3e	not recorded
+lib/okhttp-2.0.0.jar	260956	215bd87e3fada563d86e0f9beff22e9bba86940199cd573b5d7bd2469d48f195	com.squareup.okhttp:okhttp:2.0.0
+lib/okio-1.0.0.jar	52131	042dc42de6c4998c442a150fd12927a792b58ce6df81fd11fd0dee89f8700629	com.squareup.okio:okio:1.0.0
+lib/poslink-1.0.jar	88744	cae341e470f28ce9657dd92d062e9d60aaf0dc0597255c523ed8cde85aa05d15	not recorded
+lib/postgresql-42.7.12.jar	1142967	31fbf6f06b2217fb51d5100cee51b22625cc81640da0679b47914e54c1e6377c	not recorded
+lib/protobuf-java-3.11.4.jar	1660960	42e98f58f53d1a49fd734c2dd193880f2dfec3436a2993a00d06b8800a22a3f2	com.google.protobuf:protobuf-java:3.11.4
+lib/swing-layout-1.0.3.jar	118119	7b526ac5fabec1e9d1ec6c764e68188bdf4c7bd96c23d91d3450592fc4a6ba85	not recorded
+lib/swingx-core-1.6.2-2.jar	1447793	0df80935d9bc3b3841bc621c6fef6615c93aaf80393ccaa196db11bf97784f18	org.swinglabs:swingx-core:1.6.2-SNAPSHOT
+lib/threetenbp-0.8.1.jar	445351	41f11b862a544e9a861db3d7ae6fa4b2efc9dbbc62e8d0faae3df6158e4075e1	org.threeten:threetenbp:0.8.1
+lib/xalan-2.7.0.jar	2730442	bf1f065efd6e3d5cb964db4130815752015873338999d23dcafc2dbc89fc7d9b	not recorded
+lib/xercesImpl-2.4.0.jar	895924	ab09d49c018af488c6e33fe7c1235c61054f1d64edec194529ffe8b90040b4b5	not recorded
+plugins/fp-1707-inventory-1.1.2-(deprecated).jar	116445	b0df60dc767d4db68b04b63881f8808df4cdc01f05e1827d9f099a7eb8aa079e	com.orocube:fp-1707-inventory:1.1.2

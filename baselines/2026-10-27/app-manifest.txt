@@ -1,0 +1,39 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: gino
+Build-Jdk: 1.8.0_504
+Main-Class: com.floreantpos.main.Main
+Class-Path: config/ i18n/ lib/poslink-1.0.jar lib/jaxb-api-2.3.1.jar l
+ ib/javax.activation-api-1.2.0.jar lib/jaxb-core-2.3.0.1.jar lib/jaxb-
+ impl-2.3.3.jar lib/jakarta.xml.bind-api-2.3.3.jar lib/jakarta.activat
+ ion-1.2.2.jar lib/hibernate-3.2.6.ga.jar lib/ehcache-1.2.3.jar lib/co
+ mmons-logging-1.0.4.jar lib/asm-attrs-1.5.3.jar lib/dom4j-1.6.1.jar l
+ ib/antlr-2.7.6.jar lib/cglib-2.1_3.jar lib/asm-1.5.3.jar lib/jta-1.1.
+ jar lib/hibernate-annotations-3.3.1.GA.jar lib/hibernate-commons-anno
+ tations-3.0.0.ga.jar lib/ejb3-persistence-1.0.1.GA.jar lib/miglayout-
+ 3.7.4.jar lib/ecs-1.4.2.jar lib/forms-1.2.1.jar lib/swingx-core-1.6.2
+ -2.jar lib/derby-10.14.2.0.jar lib/derbynet-10.14.2.0.jar lib/derbycl
+ ient-10.14.2.0.jar lib/derbytools-10.14.2.0.jar lib/jersey-client-1.1
+ 8.1.jar lib/jersey-core-1.18.1.jar lib/looks-2.2.2.jar lib/forms_rt-7
+ .0.3.jar lib/asm-commons-3.0.jar lib/asm-tree-3.0.jar lib/jdom-1.0.ja
+ r lib/jasperreports-4.0.1.jar lib/commons-beanutils-1.8.0.jar lib/com
+ mons-digester-1.7.jar lib/jcommon-1.0.15.jar lib/jfreechart-1.0.12.ja
+ r lib/jdtcore-3.1.0.jar lib/foxtrot-2.0.jar lib/swing-layout-1.0.3.ja
+ r lib/commons-lang-2.6.jar lib/commons-configuration-1.2.jar lib/comm
+ ons-collections-3.1.jar lib/commons-logging-api-1.0.4.jar lib/commons
+ -beanutils-core-1.7.0.jar lib/xalan-2.7.0.jar lib/log4j-core-2.25.4.j
+ ar lib/log4j-api-2.25.4.jar lib/mysql-connector-java-8.0.28.jar lib/p
+ rotobuf-java-3.11.4.jar lib/commons-codec-1.9.jar lib/commons-io-2.14
+ .0.jar lib/metawidget-all-3.9.jar lib/jspf.core-1.0.2.jar lib/commons
+ -cli-1.2.jar lib/anet-java-sdk-1.8.1.jar lib/log4j-1.2.16.jar lib/htt
+ pclient-4.5.14.jar lib/httpcore-4.0.1.jar lib/commons-validator-1.4.0
+ .jar lib/jide-oss-3.6.1.jar lib/javax.json-api-1.0.jar lib/javax.json
+ -1.0.4.jar lib/barbecue-1.5-beta1.jar lib/xercesImpl-2.12.2.jar lib/x
+ ml-apis-1.4.01.jar lib/magnetictrackparser-1.0.jar lib/commons-lang3-
+ 3.3.2.jar lib/threetenbp-0.8.1.jar lib/jdom2-2.0.6.1.jar lib/jaxen-1.
+ 1.4.jar lib/c3p0-0.9.1.2.jar lib/joda-time-2.3.jar lib/jssc-2.8.0.jar
+  lib/postgresql-42.7.12.jar lib/google-maps-services-0.1.12.jar lib/g
+ son-2.3.1.jar lib/okhttp-2.0.0.jar lib/okio-1.0.0.jar lib/jna-4.2.2.j
+ ar lib/jna-platform-4.2.2.jar
+

@@ -66,7 +66,7 @@ The day summaries below must follow the numbered tasks, never override them.
 
 | Setting | Value |
 | --- | --- |
-| Day 1 | **Todo** — 1 of 6 tasks complete; ZIP preserved, other baseline tasks unfinished |
+| Day 1 | **Todo** — 2 of 6 tasks complete; ZIP, tool/dependency records saved; data/UI reviews unfinished |
 | Days 2–20 | **Todo** — choose tasks or days through chat |
 | Pace | Four weeks of planned work; dates are flexible |
 | Usage | Target at most 20% of the day's allowance; checked manually |
@@ -149,7 +149,7 @@ Future test names below are planned, not existing passing tests.
 
 | Day | Status | Affected module / task | Test to write or extend before the change |
 | --- | --- | --- | --- |
-| Day 1 | Todo — 1/6 tasks complete | Save and understand the current app baseline | D01.01 ZIP backup/hash complete; tool records, data/plugin copies, UI/work flows and remaining baseline evidence are Todo |
+| Day 1 | Todo — 2/6 tasks complete | Save and understand the current app baseline | D01.01 ZIP backup/hash and D01.02 tool/dependency/build records complete; data/plugin copies, UI/work flows and remaining baseline evidence are Todo |
 | Day 2 | Todo | Integration test setup, fixtures and inventory import | Add Failsafe, isolated fixtures, XML round-trip and inventory CSV tests; use the baseline saved in Day 1 |
 | Day 3 | Todo | Java 21 build, boot, Hibernate | `PersistenceBehaviorIT`: ticket with children, reload, rollback, persisted totals; compare JDKs; add restart/flag test |
 | Day 4 | Todo | Xerces/parser routes | `XmlParserBehaviorIT`: same mapping/import/report fixtures on both parsers; keep namespaces, field values and invalid-input behavior |
@@ -172,7 +172,7 @@ Future test names below are planned, not existing passing tests.
 
 ## Progress
 
-- [ ] Day 1: Todo — 1/6 tasks complete; ZIP preserved, remaining baseline records unfinished
+- [ ] Day 1: Todo — 2/6 tasks complete; ZIP and tool/dependency records saved; remaining baseline work unfinished
 - [ ] Day 2: Todo — integration tests, inventory import and fixture isolation
 - [ ] Day 3: Todo — Java 21 build, boot, persistence, restart
 - [ ] Day 4: Todo — XML parser behavior
@@ -212,6 +212,10 @@ The preserved ZIP and checksum are now in
 cloned; the workflow no longer depends on a sibling folder on this computer.
 See the [baseline notes](../baselines/README.md) for the bundled database content
 and verification command. Keep future shareable baseline paths inside the repo.
+
+D01.02 is complete: [tools, dependencies and build source](../baselines/2026-10-27/baseline-record.md).
+The full package build commit is unknown. Its embedded POM matches the old
+build-fix commit; this is not proof of the full source revision. **D01.03 is next.**
 
 ## Tests already written during setup
 

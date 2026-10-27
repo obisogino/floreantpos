@@ -20,9 +20,11 @@ comparison found that the server database matches the repository seed's 405
 has not been fully reviewed. Review the bundled data before sharing the snapshot
 with other people. This is not a clean seed fixture.
 
-Preserving the ZIP does not verify application startup or behavior. Package
-provenance and runtime requirements remain part of D01.02 and later baseline
-checks. No Java runtime is bundled in this ZIP.
+Preserving the ZIP does not verify application startup or behavior. The
+[D01.02 record](2026-10-27/baseline-record.md) lists tools, dependencies and
+package build evidence. The full build commit is unknown; the embedded POM
+matches the old build-fix commit. Runtime checks remain unfinished. No Java
+runtime is bundled in this ZIP.
 
 Store later shareable inputs under this folder or `test-resources/`, and use
 repository-relative paths in the plan. Keep live databases and private local

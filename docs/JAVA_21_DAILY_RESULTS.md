@@ -94,3 +94,38 @@ source commit and runtime qualification remain part of later baseline tasks.
 - Added `baselines/README.md` with the artifact path, checksum and content notes. The ZIP includes a modified single-user database: 173 seed data files differ; data contents are not yet fully reviewed.
 - Kept regular Git storage for this fixed 55,324,806-byte snapshot; no Git LFS setup is needed to clone it. Large-file handling can be revisited if more snapshots are added.
 - No app launch, build, test, commit or push occurred. D01.01 stays Done; D01.02 remains next.
+
+## D01.02 — Done — 27 October 2026
+
+| Item | Evidence |
+| --- | --- |
+| Request | One next task: record tools, dependencies and saved-package build source |
+| Checkout inspected | `bb2315fc302ff0c5a8306dfa6c72bc026c4e4830`; existing `.classpath` and `.project` edits left untouched |
+| Tools | Microsoft JDK `17.0.15+6-LTS`, JetBrains JDK `21.0.7+9-b895.130`, Maven `3.9.9`; exact paths/output in `tools.txt` |
+| Build source learned | Saved main JAR records build JDK `1.8.0_504`, Java 7 bytecode; embedded POM exactly matches `5f08e1e69a9871bfb3dc71a66f81b0c436d0fe31`; full app build commit remains unknown |
+| Dependencies | 51 current direct declarations (49 compile, one system, one test), 50 in saved POM; full current transitive tree saved; all 88 ZIP JAR entries inventoried with sizes/hashes |
+| Package differences | Two manifest JARs absent: Xerces `2.12.2` and XML APIs `1.4.01`; ZIP has Xerces `2.4.0`; duplicate app JAR is byte-identical; HTTP client/core and duplicate logging/JAXB routes recorded |
+| Artifacts | `baselines/2026-10-27/`: `baseline-record.md`, `tools.txt`, `direct-dependencies.md`, `dependency-tree.txt`, `package-jars.tsv`, `app-manifest.txt` |
+| Commands | Explicit-path `java -version`, `javac -version`, `mvn -version`; ZIP/manifest/POM inspection; `git show` POM comparison; Maven dependency tree goal shown below |
+| Resolution | Offline attempts could not resolve plugin/support artifacts; online `dependency:tree` succeeded with plugin `3.5.0`; model and blocked HTTP metadata warnings recorded in baseline notes |
+| Verification | Rechecked ZIP checksum; verified inventory covers all ZIP JARs and matches their sizes/hashes; checked POM counts/differences, metadata, local links, task order and whitespace |
+| App behavior / tests | No production change, app launch, compilation, package build or behavior/unit test; inspected records only |
+| Blockers | None for this record task. Full build commit and original Java 8 vendor/Maven version are unknown; runtime qualification remains unfinished |
+| Git / automation | No commit, push, helper script, timer or background migration job |
+| Day status | Day 1 remains Todo: **2 of 6 tasks complete** |
+| Next | **D01.03** — preserve shareable seed/test data and original/patched plugin inputs; not started |
+
+Successful inspection command (Maven ran on Microsoft JDK 17; see `tools.txt`
+for this computer's absolute tool paths):
+
+```sh
+JAVA_HOME=/path/to/jdk17 /path/to/maven-3.9.9/bin/mvn -B -ntp \
+  org.apache.maven.plugins:maven-dependency-plugin:3.5.0:tree \
+  -Dverbose -DoutputType=text \
+  -DoutputFile=baselines/2026-10-27/dependency-tree.txt
+```
+
+This direct goal does not invoke the lifecycle's seed-unpack step. Maven's
+`BUILD SUCCESS` here means the dependency report succeeded, not that the app
+was built or tested. Tool pins/download hashes and a repository wrapper remain
+planned build work; the local JBR is not the planned Temurin distribution.
