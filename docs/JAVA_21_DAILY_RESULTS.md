@@ -129,3 +129,48 @@ This direct goal does not invoke the lifecycle's seed-unpack step. Maven's
 `BUILD SUCCESS` here means the dependency report succeeded, not that the app
 was built or tested. Tool pins/download hashes and a repository wrapper remain
 planned build work; the local JBR is not the planned Temurin distribution.
+
+## D01.03 — Done — 27 October 2026
+
+- Copied the tracked Derby sample seed and ignored original/patched inventory
+  plugins into `baselines/2026-10-27/inputs/`; hashes and sources are listed in
+  `baselines/README.md`. All three copies match their sources by SHA-256.
+- The patched plugin also matches the copy in the preserved app ZIP. Its
+  compatibility metadata records the original JAR's hash and a `Double`
+  quantity type. No plugin behavior was tested.
+- The seed was already tracked; its database content has not been fully
+  reviewed. Plugin redistribution terms are unknown. Review both before
+  publishing; this record does not certify that they are safe to share.
+- Live data, app code and active plugins were not changed. No app launch,
+  build, test, commit or push. Verification was file/hash and metadata checks.
+- Day 1: 3/6 tasks complete, still Todo. Next: **D01.04**, UI/work-flow baseline.
+
+## Plan change — 27 October 2026
+
+- By request, removed D01.04–D01.06 from the task queue; they were not done.
+  Day 1 is closed with its three completed tasks. Existing artifacts are kept.
+- Use Git for source history. Check current behavior with focused tests while
+  changing each affected area; keep UI and feature checks in later tasks.
+- Next: **D02.01**, integration test setup and behavior tests. No code or tests
+  were run for this plan edit.
+
+## D03.01 — Done — 27 October 2026
+
+- User requested starting the Java 21 migration directly. Updated `pom.xml`:
+  Maven compiler plugin `3.10.0` → `3.14.1`; replaced Java 7 source/target
+  with `maven.compiler.release=21`.
+- Before: the existing three behavior classes passed on Microsoft JDK 17,
+  20 tests, zero failures. After: fresh compile of 918 source files and the
+  same 20 tests passed on JetBrains JDK 21.0.7. Main class bytecode is Java 21
+  (major version 65). The first Java 21 run reused old classes, so it was not
+  used as compilation evidence; generated class directories were moved under
+  `target/` and the focused goals rerun.
+- Command for both runs, changing `JAVA_HOME` to the relevant JDK:
+  `mvn -B -ntp resources:resources compiler:compile compiler:testCompile surefire:test -Dtest=NumberUtilBehaviorTest,PasswordHasherBehaviorTest,DiscountUtilBehaviorTest`.
+  These goals did not invoke the seed-unpack lifecycle step.
+- No app launch, package build or integration test occurred. Java 21 startup,
+  database, plugin and UI behavior remain unverified. The compiler reports
+  five existing removal warnings; the build also reports local PAX and metadata
+  warnings.
+- Day 3 remains Todo: D03.02 and D03.03 are unfinished. The next task in the
+  queue is D02.01; the user can explicitly choose another task.

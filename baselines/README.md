@@ -30,3 +30,24 @@ Store later shareable inputs under this folder or `test-resources/`, and use
 repository-relative paths in the plan. Keep live databases and private local
 settings out of versioned fixtures. Git tracking does not prove a snapshot is
 safe to restore over live data.
+
+## Saved test inputs
+
+These copies are in [`2026-10-27/inputs/`](2026-10-27/inputs/) so they can be
+included in Git and used on another computer. SHA-256 was checked against each
+local source on 27 October 2026.
+
+| File | Source | SHA-256 |
+| --- | --- | --- |
+| `posdb-seed.zip` | Tracked `database/derby-server/posdb.zip` | `da83d9f512d13d81388b54f4a360b86b7c6b87e9ee7785e8b32d2230f58a1041` |
+| `inventory-original.jar` | Ignored local original plugin | `131fd33a117d91dd964a74d43dbc456458ebc41c2253e32bceccb675140e3eee` |
+| `inventory-patched.jar` | Ignored local runtime plugin, also in saved app ZIP | `b0df60dc767d4db68b04b63881f8808df4cdc01f05e1827d9f099a7eb8aa079e` |
+
+The patched plugin's compatibility metadata records the original hash above and
+`quantity.type=java.lang.Double`. This links the two files; it does not prove
+the plugin works. The tracked seed was already in the repository, but its data
+has not been fully reviewed. The project's README describes additional plugins
+as closed-source; redistribution terms for these plugin JARs have not been
+verified. Review both data and plugin sharing rights before publishing them.
+These files are snapshots, not active app inputs; do not replace a live database
+or plugin with them without a separate restore decision.

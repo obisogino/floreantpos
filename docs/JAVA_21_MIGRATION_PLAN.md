@@ -1,6 +1,6 @@
 # Java 21: four-week work plan
 
-Written: 26 October 2026. Status: baseline test setup added; migration changes have not started.
+Written: 26 October 2026. Status: Java 21 compiler change started; application startup and full migration remain unverified.
 
 **Manual workflow:** planning/review requests change documentation only. An
 explicit execution request chooses one task, a whole planned day, or a stated
@@ -10,7 +10,7 @@ same calendar day. No automation is installed.
 The **numbered task checkboxes in section 6** are the source of truth for task
 order and completion. The [daily tracker](JAVA_21_DAILY_TASKS.md) summarizes day
 status and explains command meanings. The results file holds evidence, not the
-task queue. Completed prework does not complete Day 1.
+task queue. Day 1 is closed under the revised scope; removed tasks were not done.
 
 **System coverage:** the whole app has not been checked yet. The
 [whole-system coverage checklist](JAVA_21_SYSTEM_COVERAGE.md) now assigns all
@@ -45,7 +45,7 @@ it is not the same as a fully maintained stack.
 - [ ] Leave untested devices and databases marked as blocked, not passed.
 - [ ] Review every used area in the whole-system coverage checklist before release; carry unfinished checks forward if four weeks is not enough.
 - [ ] Keep the current working app available every day; isolate migration code and copied data from daily use.
-- [ ] Save the working baseline during Day 1, then leave a saved runnable checkpoint before marking any app-changing day Done; failed work keeps the prior verified package available.
+- [ ] Keep the working app available; verify each changed candidate before using it and use Git history for source changes.
 
 The first Java 21 candidate is targeted for Day 3, not promised on that date.
 Until it passes its daily checks, use the existing app and runtime. Daily
@@ -201,7 +201,7 @@ task silently. Days 19–20 provide buffer; unfinished work may extend the plan.
 
 | Day | Main task | Required proof |
 | --- | --- | --- |
-| 1 | Save and understand the existing app baseline | Preserved ZIP/data/plugin inputs, hashes, tool versions, dependency inventory, UI/work-flow records and known failures |
+| 1 | Initial preservation, now closed | Three completed tasks; standalone UI/feature recording tasks removed by request |
 | 2 | Add integration test setup, fixtures and inventory tests | XML round-trip, fractional inventory import and isolated fixtures |
 | 3 | Move build and launch to Java 21 | Full source compile, boot test, Hibernate integration test |
 | 4 | Fix duplicate XML parser routes | One parser version; XML/JAXB/report parsing tests pass |
@@ -211,13 +211,13 @@ task silently. Days 19–20 provide buffer; unfinished work may extend the plan.
 - [x] **Prework:** Record money formatting, password hash, and discount behavior in 20 tests.
 - [x] **D01.01:** Save the existing app ZIP in versionable `baselines/`, outside `target/`; verify the copied file's SHA-256 matches the original and record its relative path. No app launch or rebuild is needed. Evidence: 27 October 2026, D01.01 in the daily results; artifact in `baselines/2026-10-27/`.
 - [x] **D01.02:** Record JDK/Maven versions, dependency inventory and the package's build commit if known; do not assume it matches today's commit. Evidence: [tools, dependencies and build source](../baselines/2026-10-27/baseline-record.md), 27 October 2026. Full build commit unknown; embedded POM matches the build-fix commit.
-- [ ] **D01.03:** Copy shareable seed/test data and original/patched plugin inputs into repository-local baseline storage; record hashes, review what can be shared, and keep live data untouched.
-- [ ] **D01.04:** Capture login, tables, order, payment, back office, inventory and print preview at fixed scale on copied data; record existing failures and behavior evidence.
-- [ ] **D01.05:** Review system coverage; record which screens, databases, devices, services and plugins are used. Ask only for deployment facts the repository cannot establish.
-- [ ] **D01.06:** Review existing behavior tests and attach baseline evidence; record missing coverage and finish the Day 1 baseline record.
+- [x] **D01.03:** Copy seed/test data and original/patched plugin inputs into repository-local baseline storage; record hashes, review what can be shared, and keep live data untouched. Evidence: [saved test inputs](../baselines/README.md#saved-test-inputs). Seed contents and plugin redistribution rights remain unverified before sharing.
+**Day 1 scope change:** D01.04–D01.06 were removed, not completed. Check UI,
+feature use and tests when the relevant migration task needs them. No more
+standalone baseline-recording tasks; Git tracks source changes.
 - [ ] **D02.01:** Add Failsafe and `test-resources/`; add XML round-trip and decimal inventory import tests.
 - [ ] **D02.02:** Add isolated DB fixture setup/teardown; prove it cannot use the live DB path.
-- [ ] **D03.01:** Use JDK 21, compiler 3.14.1 and `release=21`; remove both old source/target settings; verify compilation with the existing behavior suite.
+- [x] **D03.01:** Use JDK 21, compiler 3.14.1 and `release=21`; remove both old source/target settings; verify compilation with the existing behavior suite. 918 sources recompiled and 20 existing tests passed on Java 21; startup remains Todo.
 - [ ] **D03.02:** Probe real Hibernate behavior without flags first. If needed, add the narrow documented flag to tests, launchers, setup/proxy tools and restart; run persistence checks.
 - [ ] **D03.03:** Verify restart preserves JDK/flags; avoid relying on `sun.java.command` parsing; save a runnable Day 3 candidate.
 - [ ] **D04.01:** Remove old Xerces 2.4.0; inspect resolved/packaged JARs; run T03, T04, T06 and T07.

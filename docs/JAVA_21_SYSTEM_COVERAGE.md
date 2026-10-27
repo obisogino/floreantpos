@@ -95,12 +95,9 @@ These are source findings, not new executed test results.
 
 ## Whole-system completion rule
 
-Day 1 requires baseline preservation and behavior evidence. Its current status
-comes from the numbered tasks and daily summary. Initial test setup is prework,
-not a completed migration workday.
-Day 1 baseline and feature-use inventory applies to every row above; the listed
-later days cover detailed feature checks. No row passes because setup exists.
-A feature being listed here means it is **planned**, not verified.
+Day 1 is closed under the reduced scope; the removed recording tasks were not
+done. Check feature use and current behavior as each affected area is changed.
+No row passes because setup exists. A listed feature is planned, not verified.
 
 Each used area must pass its baseline and after-change checks. An unused area
 may be marked deferred only with its reason and impact recorded. Missing device,

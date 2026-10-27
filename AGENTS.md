@@ -46,17 +46,17 @@ and any more specific instructions first. Preserve unrelated local changes.
   change scope/budget explicitly. Do not claim a hard token cap is enforced.
 - Keep the UI and business behavior unchanged. Use copied data, preserve the
   working app, and keep unrelated work intact.
-- Store shareable migration baselines inside `baselines/`, outside `target/`,
-  so they can be committed and cloned. Use repository-relative artifact paths.
-  Do not create new baseline storage outside the workspace unless requested.
+- Use Git history for source changes. Do not add standalone baseline-recording
+  tasks, duplicate backups, or new record files unless the user requests them.
+  Keep existing saved artifacts; use copied data for tests where needed.
 - Do not recreate automation, background jobs, or the removed Python runner.
   Do not commit, push, merge, deploy, or create agents unless requested.
 
 ## Record progress
 
 - Check a numbered task only after its required work and verification finish.
-- Add the task ID, behavior learned, commands/results, artifacts, blockers and
-  next unfinished task to `docs/JAVA_21_DAILY_RESULTS.md`.
+- Add a short task ID, test result, blocker and next task to the existing
+  `docs/JAVA_21_DAILY_RESULTS.md`; avoid separate record files.
 - Update the day summaries in the daily tracker. Mark a day Done only when all
   its numbered tasks and applicable daily gates pass. Existing prework alone
   never completes Day 1.

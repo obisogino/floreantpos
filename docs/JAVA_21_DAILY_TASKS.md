@@ -58,7 +58,7 @@ The day summaries below must follow the numbered tasks, never override them.
    missing input. Do not silently move to the next task/day.
 6. Check the task only after its required evidence is complete. Update the
    results and day summary. A day is Done only when all its tasks and applicable
-   daily gates pass; prework alone never completes Day 1.
+   daily gates pass; removed tasks are not counted as completed.
 7. Stop at the requested amount or explicit budget. Report results and the next
    task. Do not commit, push, deploy or start another work group unless asked.
 
@@ -66,8 +66,8 @@ The day summaries below must follow the numbered tasks, never override them.
 
 | Setting | Value |
 | --- | --- |
-| Day 1 | **Todo** — 2 of 6 tasks complete; ZIP, tool/dependency records saved; data/UI reviews unfinished |
-| Days 2–20 | **Todo** — choose tasks or days through chat |
+| Day 1 | **Closed** — 3 tasks done; 3 standalone recording tasks removed, not completed |
+| Days 2–20 | **Todo** — D03.01 compiler change complete; remaining tasks unfinished |
 | Pace | Four weeks of planned work; dates are flexible |
 | Usage | Target at most 20% of the day's allowance; checked manually |
 | Progress | Update the status below after the requested day's work |
@@ -84,21 +84,21 @@ build can fail; it must not replace your working app or use its live database.
 
 | Point in the plan | App available for use |
 | --- | --- |
-| Days 1–2 | Existing working app with its existing Java runtime; preserve its ZIP and data backup |
+| Days 1–2 | Existing working app with its existing Java runtime |
 | Day 3 onward | First Java 21 candidate is targeted for Day 3; use it for copied-data checks only after its daily gate passes |
-| After each completed implementation day | Keep a named, runnable checkpoint with its exact JDK, flags, package and check results |
+| After each completed implementation day | Verify the candidate works and keep the existing working app available |
 | A change fails or time runs out | Keep the previous verified package available; mark the day's migration work Blocked or Todo |
 | Final acceptance | After all required system checks pass, decide separately when to replace the daily-use app |
 
-The earlier test setup is completed prework, not a completed Day 1. During Day 1,
-verify and save the working app baseline before changing app code. For days that change the app,
-the daily runnable gate is required before marking Done:
+Day 1 is closed under the reduced scope; its removed recording tasks were not
+done. For days that change the app, the daily runnable gate is required before
+marking Done:
 
 - [ ] Build/package the candidate and start it outside the IDE using its recorded JDK and flags.
 - [ ] On copied data, check login, menu/order entry, ticket save/reopen, payment recording without real charges, and a used receipt/report.
 - [ ] Check the affected module plus earlier migration checks; include inventory/plugin paths when enabled.
 - [ ] Confirm the usual screen shapes and work flow remain the same.
-- [ ] Save the package, exact launch command, data-fixture version, results and known issues outside disposable build output.
+- [ ] Note the launch command and test result briefly in the existing results log.
 - [ ] Keep the previous verified package; keep unfinished work separate and leave the day open.
 
 For a documentation-only day, reference the last verified package instead of
@@ -115,8 +115,8 @@ It adds permissions, back-office edits, shifts, cash accounting, customers,
 bookings, delivery, kitchen display, settings, encoding, POS servers/proxies,
 vendor code, and resource cleanup to the existing migration checks.
 
-Before each day, read its assigned coverage rows. Record the behavior, write
-the test, then change that module. Day 1 remains Todo until its baseline tasks are complete.
+Before each day, read its assigned coverage rows. Understand the behavior, write
+the test, then change that module.
 Unreviewed features stay Todo; checks do not disappear to meet the day limit.
 
 ## Every day: understand, test, change, test again
@@ -149,9 +149,9 @@ Future test names below are planned, not existing passing tests.
 
 | Day | Status | Affected module / task | Test to write or extend before the change |
 | --- | --- | --- | --- |
-| Day 1 | Todo — 2/6 tasks complete | Save and understand the current app baseline | D01.01 ZIP backup/hash and D01.02 tool/dependency/build records complete; data/plugin copies, UI/work flows and remaining baseline evidence are Todo |
+| Day 1 | Closed — 3 done; 3 removed | Initial preservation | UI and feature checks move to the relevant implementation tasks |
 | Day 2 | Todo | Integration test setup, fixtures and inventory import | Add Failsafe, isolated fixtures, XML round-trip and inventory CSV tests; use the baseline saved in Day 1 |
-| Day 3 | Todo | Java 21 build, boot, Hibernate | `PersistenceBehaviorIT`: ticket with children, reload, rollback, persisted totals; compare JDKs; add restart/flag test |
+| Day 3 | Todo — D03.01 compiler change complete | Java 21 build, boot, Hibernate | `PersistenceBehaviorIT`: ticket with children, reload, rollback, persisted totals; compare JDKs; add restart/flag test |
 | Day 4 | Todo | Xerces/parser routes | `XmlParserBehaviorIT`: same mapping/import/report fixtures on both parsers; keep namespaces, field values and invalid-input behavior |
 | Day 5 | Todo | Jasper/ECJ and report compile | `ReportTemplateBehaviorIT`: compile/fill templates with fixed data; compare text, totals, pages and paper sizes; reproduce schema error first |
 | Day 6 | Todo | JAXB runtime | `JaxbRoundTripBehaviorIT`: old menu/config/POS XML fixtures; same field names, fractions, accents and peso sign |
@@ -172,9 +172,9 @@ Future test names below are planned, not existing passing tests.
 
 ## Progress
 
-- [ ] Day 1: Todo — 2/6 tasks complete; ZIP and tool/dependency records saved; remaining baseline work unfinished
+- [x] Day 1: Closed under revised scope — 3 done; 3 recording tasks removed, not completed
 - [ ] Day 2: Todo — integration tests, inventory import and fixture isolation
-- [ ] Day 3: Todo — Java 21 build, boot, persistence, restart
+- [ ] Day 3: Todo — compiler change done; boot, persistence and restart remain
 - [ ] Day 4: Todo — XML parser behavior
 - [ ] Day 5: Todo — report compilation and output
 - [ ] Day 6: Todo — JAXB file and wire compatibility
@@ -203,9 +203,7 @@ index, not a second task queue:
 | D01.01 | Preserve app ZIP in repository-local `baselines/`, outside `target/`; verify and record its hash |
 | D01.02 | Record tools, dependency inventory and package provenance |
 | D01.03 | Preserve seed/test data and original/patched plugin inputs |
-| D01.04 | Capture current screens/work flows and existing failures |
-| D01.05 | Record used features, engines, devices, plugins and services |
-| D01.06 | Review existing tests and complete baseline evidence |
+| D01.04–D01.06 | Removed by request; not completed. Check the affected behavior during implementation. |
 
 The preserved ZIP and checksum are now in
 [`baselines/2026-10-27/`](../baselines/2026-10-27/). They can be committed and
@@ -215,13 +213,15 @@ and verification command. Keep future shareable baseline paths inside the repo.
 
 D01.02 is complete: [tools, dependencies and build source](../baselines/2026-10-27/baseline-record.md).
 The full package build commit is unknown. Its embedded POM matches the old
-build-fix commit; this is not proof of the full source revision. **D01.03 is next.**
+build-fix commit; this is not proof of the full source revision. D01.03 saved
+the [seed and plugin inputs](../baselines/README.md#saved-test-inputs).
+**D02.01 is next:** add integration test setup and behavior tests.
 
 ## Tests already written during setup
 
 The setup run on 26 October recorded 20 passing tests on JDK 17 and 21. These
-historical results are completed **prework**, not a completed Day 1 or proof
-that a later build passes. Do not rerun them during plan edits. Review/extend
+historical results are completed **prework**, not proof that a later build
+passes. Do not rerun them during plan edits. Review/extend
 them when the selected execution task needs it.
 
 That setup compiled with JDK 17 and the old Java 7 target, then ran the same
@@ -237,9 +237,9 @@ These tests document existing rules. They do not endorse old password storage
 or decide whether a surprising rounding/discount rule is correct. Any business
 rule change needs a separate task and revised examples.
 
-Before the Java 21 build step, use installed JDK 17 to compile the unchanged
-Java 7 target. This command runs only the focused compiler/test goals and avoids
-the old validation step that unpacks seed data:
+The following was the pre-change JDK 17 command for the old Java 7 target. It is
+historical: the current POM now requires JDK 21. The focused goals avoid the old
+validation step that unpacks seed data:
 
 ```sh
 JAVA_HOME=/home/gino/.jdks/ms-17.0.15 \
