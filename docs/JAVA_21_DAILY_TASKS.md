@@ -2,16 +2,72 @@
 
 ## Current instruction
 
-This is documentation only. **Do not run tests, change dependencies, or start
-background work from this checklist.** Work starts only when you ask for a day.
-Keep the test files and build changes already made; do not revert them.
+Reading or updating this plan does not start implementation or tests. A direct
+chat request such as **"run a task"** or **"run a day"** starts only the chosen
+amount of work. Follow any explicit limits in that request. Keep existing tests
+and unrelated local work intact. No scripts, timer or background migration job
+should be created.
+
+## Chat commands and task selection
+
+| Your request | What to do |
+| --- | --- |
+| "Run a task", "do a task", "next task", "do a single task" | Complete one first-unfinished numbered task |
+| "Run a day", "do a day" | Complete remaining tasks in the first unfinished planned day |
+| "Run 3 tasks" | Complete up to three unfinished tasks in order |
+| "Run D01.03" or "run Day 2" | Select that task/day; inspect prerequisites and explain any real blocker |
+| "Review the plan", a question, or a quoted command example | Inspect/update documentation only; do not start the quoted work |
+
+You choose the amount. Day numbers are planning groups, not dates or a limit on
+how often you may request work. You can run one task, several tasks, or a day,
+and request more work on the same calendar day. A request for one task must not
+grow into the whole day; a request for a day must not stop after one task unless
+blocked or limited by your budget/instructions.
+
+### Source of truth
+
+| File | Purpose |
+| --- | --- |
+| [Main plan, section 6](JAVA_21_MIGRATION_PLAN.md#6-four-week-checklist) | **Authoritative numbered task queue and completion checkboxes** |
+| This daily tracker | Command meanings, day summaries and daily acceptance rules |
+| [System coverage](JAVA_21_SYSTEM_COVERAGE.md) | Related modules and required behavior checks |
+| [Daily results](JAVA_21_DAILY_RESULTS.md) | Historical evidence, blockers and next-action notes |
+| [Project instructions](../AGENTS.md) | Entry instructions for future Codex sessions |
+
+Select only task checkboxes with IDs such as `D01.01` in main-plan section 6,
+in listed order. Do not select generic acceptance checkboxes, day summaries,
+completed prework, old log statements or future Path B items as the next task.
+The day summaries below must follow the numbered tasks, never override them.
+
+### How to work without extra steering
+
+1. Read the next task and its latest evidence. Inspect Git status, relevant
+   source/callers, artifacts and fixtures. If a checked task lacks evidence,
+   correct it to unfinished rather than skipping required work.
+2. Announce the selected ID and inspect what is actually needed. Resolve
+   routine choices and discoverable facts yourself. Do not ask the user where a
+   file is or which small implementation step to use when the repo answers it.
+3. Do only the selected scope and its small necessary prerequisites. For an
+   oversized task, first split it into ordered child tasks; a one-task request
+   then completes one unfinished child. Do not silently reorder the plan.
+4. For an app change, write/extend a current-behavior test, run it before the
+   change, then run it again afterward. For a backup, check the copied file and
+   hash; do not launch unrelated app tests. Honor explicit test restrictions.
+5. If the first task is partial or blocked, resume it first. Resolve the blocker
+   within scope if possible; otherwise record it and ask only for the genuinely
+   missing input. Do not silently move to the next task/day.
+6. Check the task only after its required evidence is complete. Update the
+   results and day summary. A day is Done only when all its tasks and applicable
+   daily gates pass; prework alone never completes Day 1.
+7. Stop at the requested amount or explicit budget. Report results and the next
+   task. Do not commit, push, deploy or start another work group unless asked.
 
 ## Status
 
 | Setting | Value |
 | --- | --- |
-| Day 1 | **Done** — initial behavior tests and test setup |
-| Days 2–20 | **Todo** — start each day manually when requested |
+| Day 1 | **Todo** — baseline tasks are unfinished |
+| Days 2–20 | **Todo** — choose tasks or days through chat |
 | Pace | Four weeks of planned work; dates are flexible |
 | Usage | Target at most 20% of the day's allowance; checked manually |
 | Progress | Update the status below after the requested day's work |
@@ -34,8 +90,8 @@ build can fail; it must not replace your working app or use its live database.
 | A change fails or time runs out | Keep the previous verified package available; mark the day's migration work Blocked or Todo |
 | Final acceptance | After all required system checks pass, decide separately when to replace the daily-use app |
 
-Day 1's Done label covers test setup only. From Day 2 onward, verify and save the
-working app baseline before changing app code. For days that change the app,
+The earlier test setup is completed prework, not a completed Day 1. During Day 1,
+verify and save the working app baseline before changing app code. For days that change the app,
 the daily runnable gate is required before marking Done:
 
 - [ ] Build/package the candidate and start it outside the IDE using its recorded JDK and flags.
@@ -60,7 +116,7 @@ bookings, delivery, kitchen display, settings, encoding, POS servers/proxies,
 vendor code, and resource cleanup to the existing migration checks.
 
 Before each day, read its assigned coverage rows. Record the behavior, write
-the test, then change that module. Day 1 is Done for the initial tests only.
+the test, then change that module. Day 1 remains Todo until its baseline tasks are complete.
 Unreviewed features stay Todo; checks do not disappear to meet the day limit.
 
 ## Every day: understand, test, change, test again
@@ -79,8 +135,9 @@ Unreviewed features stay Todo; checks do not disappear to meet the day limit.
 6. Record before/after evidence. Mark the day done only when the task and tests
    pass. Otherwise leave it Todo or mark it Blocked for the next manual session.
 
-Each day must add or extend at least one affected-module test. A packaging,
-launch, UI, or process integration test counts; a manual check alone does not.
+Each app-changing day must add or extend affected-module behavior tests. A
+packaging, launch, UI or process integration test counts. For preservation or
+documentation tasks, verify artifacts/records without inventing unrelated tests.
 Hardware tests still need the actual device. Do not mark a stub as device proof.
 Keep source/JDK differences visible: tests failing before a change are not new
 migration regressions, and tests only run after a change are not a baseline.
@@ -92,8 +149,8 @@ Future test names below are planned, not existing passing tests.
 
 | Day | Status | Affected module / task | Test to write or extend before the change |
 | --- | --- | --- | --- |
-| Day 1 | Done | Baseline: money display, login, discounts | Added 20 tests in `NumberUtilBehaviorTest`, `PasswordHasherBehaviorTest`, and `DiscountUtilBehaviorTest`; existing results recorded |
-| Day 2 | Todo | System inventory, saved baseline, fixtures and inventory import | Review coverage rows, used features/settings, ZIP/data/UI samples; add inventory CSV/isolation tests and list existing failures |
+| Day 1 | Todo | Save and understand the current app baseline | Preserve ZIP/data/plugin inputs and hashes; record tool versions, used features, current UI/work flows and known failures; attach existing test evidence |
+| Day 2 | Todo | Integration test setup, fixtures and inventory import | Add Failsafe, isolated fixtures, XML round-trip and inventory CSV tests; use the baseline saved in Day 1 |
 | Day 3 | Todo | Java 21 build, boot, Hibernate | `PersistenceBehaviorIT`: ticket with children, reload, rollback, persisted totals; compare JDKs; add restart/flag test |
 | Day 4 | Todo | Xerces/parser routes | `XmlParserBehaviorIT`: same mapping/import/report fixtures on both parsers; keep namespaces, field values and invalid-input behavior |
 | Day 5 | Todo | Jasper/ECJ and report compile | `ReportTemplateBehaviorIT`: compile/fill templates with fixed data; compare text, totals, pages and paper sizes; reproduce schema error first |
@@ -115,8 +172,8 @@ Future test names below are planned, not existing passing tests.
 
 ## Progress
 
-- [x] Day 1: Done — initial behavior tests and test setup
-- [ ] Day 2: Todo — baseline files, inventory import and fixture isolation
+- [ ] Day 1: Todo — current app baseline, saved inputs and behavior records
+- [ ] Day 2: Todo — integration tests, inventory import and fixture isolation
 - [ ] Day 3: Todo — Java 21 build, boot, persistence, restart
 - [ ] Day 4: Todo — XML parser behavior
 - [ ] Day 5: Todo — report compilation and output
@@ -136,16 +193,29 @@ Future test names below are planned, not existing passing tests.
 - [ ] Day 19: Todo — blocker regression and candidate freeze
 - [ ] Day 20: Todo — candidate checks and handover
 
+### Day 1 task references
+
+The completion checkboxes live only in main-plan section 6. This is a short
+index, not a second task queue:
+
+| ID | Task |
+| --- | --- |
+| D01.01 | Preserve app ZIP outside `target/`; verify and record its hash |
+| D01.02 | Record tools, dependency inventory and package provenance |
+| D01.03 | Preserve seed/test data and original/patched plugin inputs |
+| D01.04 | Capture current screens/work flows and existing failures |
+| D01.05 | Record used features, engines, devices, plugins and services |
+| D01.06 | Review existing tests and complete baseline evidence |
+
 ## Tests already written during setup
 
-These files and results predate the instruction to stop testing in this chat.
-Keep them as the starting point; do not rerun them during plan edits. Review and
-extend them only when the relevant implementation day is requested.
+The setup run on 26 October recorded 20 passing tests on JDK 17 and 21. These
+historical results are completed **prework**, not a completed Day 1 or proof
+that a later build passes. Do not rerun them during plan edits. Review/extend
+them when the selected execution task needs it.
 
-20 tests pass on both JDK 17 and JDK 21 against current app code. Compilation
-still uses JDK 17 and the old Java 7 target; the Java 21 check runs the same
-compiled tests on that runtime. Runtime libraries were kept at their old
-versions. The suite checks:
+That setup compiled with JDK 17 and the old Java 7 target, then ran the same
+compiled tests on Java 21. Runtime library versions were unchanged. It covered:
 
 | Test class | Count | Examples of current behavior kept |
 | --- | --- | --- |
@@ -170,11 +240,11 @@ JAVA_HOME=/home/gino/.jdks/ms-17.0.15 \
 
 ## Daily evidence to save
 
-After a manually requested workday, append an entry to `docs/JAVA_21_DAILY_RESULTS.md`:
+After each requested task or day, append an entry to `docs/JAVA_21_DAILY_RESULTS.md`:
 
 | Item | Record |
 | --- | --- |
-| Run | Date, task ID, time, JDK, dependency before/after |
+| Scope | Requested amount, selected task ID(s), date/time, JDK, dependency before/after |
 | Read | Source file, method, caller and fixture |
 | Learned | Concrete current inputs, outputs, side effects and failures |
 | Before | New/extended test, exact command, unchanged-app result |
@@ -185,9 +255,9 @@ After a manually requested workday, append an entry to `docs/JAVA_21_DAILY_RESUL
 
 ## How to continue
 
-Ask for a specific day, for example: **"Start Day 2."** Until then, update the
-documentation only. No timed task, test command, or migration step should run.
+Say **"run a task"** for the next unfinished numbered task, **"run a day"** for
+the next unfinished day, or state the number/ID you want. You do not have to
+choose a calendar date or name the day for the default commands.
 
-After the requested work, update the day's status to **Done** only when its work
-and required checks are complete. If work remains, keep it **Todo** or mark it
-**Blocked** with the reason. Asking to update the plan alone does not start tests.
+Update task status first, then its day summary. Keep unfinished work Todo or
+Blocked with a reason. A planning question alone never starts implementation.

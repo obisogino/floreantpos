@@ -1,5 +1,10 @@
 # FloreantPOS
 
+Java 21 migration work is manual. See [project instructions](AGENTS.md), the
+[migration plan](docs/JAVA_21_MIGRATION_PLAN.md), and the
+[daily tracker](docs/JAVA_21_DAILY_TASKS.md). Chat requests can select one task,
+multiple tasks or a planned day; reviewing the documents starts no work.
+
 **Update 7-3-22**:  Version bumps to postgresql, mysql-connector-java, & derby (security from @dependabot).  Also some changes to make build complete.
 
 **Update 2-28-22**: Updated xercesImpl from 2.12.0 to 2.12.2

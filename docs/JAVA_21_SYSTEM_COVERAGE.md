@@ -22,8 +22,10 @@ and launch files. This is a map of the code, not a claim that every line was rea
 | All database engines and real devices | Todo |
 | Whole-system Java 21 approval | Todo; no release sign-off yet |
 
-This is documentation only. Do not run tests or start implementation until a
-workday is explicitly requested. Automation remains disabled.
+This file maps coverage; it is not the task queue. A planning question does not
+start tests or implementation. An execution request for a task, day or stated
+number of tasks follows the [daily command rules](JAVA_21_DAILY_TASKS.md#chat-commands-and-task-selection)
+and the numbered tasks in main-plan section 6. No automation is installed.
 
 ## Module checklist and assigned days
 
@@ -93,7 +95,11 @@ These are source findings, not new executed test results.
 
 ## Whole-system completion rule
 
-Day 1 is Done only for initial test setup. No other row is passed by that label.
+Day 1 requires baseline preservation and behavior evidence. Its current status
+comes from the numbered tasks and daily summary. Initial test setup is prework,
+not a completed migration workday.
+Day 1 baseline and feature-use inventory applies to every row above; the listed
+later days cover detailed feature checks. No row passes because setup exists.
 A feature being listed here means it is **planned**, not verified.
 
 Each used area must pass its baseline and after-change checks. An unused area

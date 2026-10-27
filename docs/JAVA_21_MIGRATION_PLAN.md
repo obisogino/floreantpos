@@ -2,22 +2,20 @@
 
 Written: 26 October 2026. Status: baseline test setup added; migration changes have not started.
 
-**Current instruction:** update the plan only; do not run tests now. Keep the
-test files and build changes already made. Run the planned behavior/unit tests
-during manually requested workdays, before and after each affected module change.
+**Manual workflow:** planning/review requests change documentation only. An
+explicit execution request chooses one task, a whole planned day, or a stated
+number of tasks. The user decides the amount; several requests may occur on the
+same calendar day. No automation is installed.
 
-**Manual tracker:** Day 1 is Done for the initial behavior tests and test setup;
-Days 2–20 are Todo. Automation files have been removed. Start a day only when requested in chat.
-See [daily tasks and behavior tests](JAVA_21_DAILY_TASKS.md) for each day's
-required module tests and Done/Todo checkboxes.
-Every day must read current code, write/run a baseline test, then make its change
-and rerun that same test. The daily file is the run checklist; this file gives
-the dependency choices and wider plan.
+The **numbered task checkboxes in section 6** are the source of truth for task
+order and completion. The [daily tracker](JAVA_21_DAILY_TASKS.md) summarizes day
+status and explains command meanings. The results file holds evidence, not the
+task queue. Completed prework does not complete Day 1.
 
 **System coverage:** the whole app has not been checked yet. The
 [whole-system coverage checklist](JAVA_21_SYSTEM_COVERAGE.md) now assigns all
 identified system areas to manual workdays and records what is still Todo.
-Day 1 being Done covers initial tests only; it is not system approval.
+The existing tests are not system approval; current day status is in the daily tracker.
 
 ## 1. Goal and limits
 
@@ -42,12 +40,12 @@ it is not the same as a fully maintained stack.
 - [ ] Keep the current database engines and data format in Path A.
 - [ ] Use one library change at a time; test before the next change.
 - [ ] Treat linked parts as one change: JAXB, Log4j, or JNA plus JNA Platform.
-- [ ] Use one small commit per passing step. Never commit unrelated local work.
+- [ ] Keep passing changes small and reviewable. Commit or push only when requested; never include unrelated local work.
 - [ ] Use copied data and sandbox payment accounts for tests.
 - [ ] Leave untested devices and databases marked as blocked, not passed.
 - [ ] Review every used area in the whole-system coverage checklist before release; carry unfinished checks forward if four weeks is not enough.
 - [ ] Keep the current working app available every day; isolate migration code and copied data from daily use.
-- [ ] From Day 2 onward, leave a saved runnable checkpoint before marking any app-changing day Done; failed work keeps the prior verified package available.
+- [ ] Save the working baseline during Day 1, then leave a saved runnable checkpoint before marking any app-changing day Done; failed work keeps the prior verified package available.
 
 The first Java 21 candidate is targeted for Day 3, not promised on that date.
 Until it passes its daily checks, use the existing app and runtime. Daily
@@ -187,34 +185,44 @@ Do not bulk-upgrade them or call Path A fully modern because the app starts.
 
 ## 6. Four-week checklist
 
-Work in order. Each day has one main result. If a required check fails, keep the
-next dependency unchanged and carry the task forward. Days 19–20 provide some
-buffer; larger blockers extend the plan.
+**Task queue:** only the numbered checkboxes in this section select migration
+work. Pick the first unfinished ID in listed order. Day summaries, prework,
+generic checklists and the later roadmap do not select tasks. A day is a group
+of tasks, not a calendar restriction.
+
+For "run a task", do one unfinished task. For "run a day", finish the remaining
+tasks in the first unfinished day. For "run N tasks", do up to N in order. A
+specific ID/day selects that work, subject to its prerequisites. If a task is
+too large, split it into ordered child checkboxes under its ID before starting;
+one-task scope then covers one unfinished leaf task. Never skip a blocked first
+task silently. Days 19–20 provide buffer; unfinished work may extend the plan.
 
 ### Week 1: a tested Java 21 base
 
 | Day | Main task | Required proof |
 | --- | --- | --- |
-| 1: Done | Initial test setup and behavior tests | 20 existing-behavior tests; money display, login hashes, and discounts |
-| 2: Todo | Save baseline files; add fixture and inventory tests | Existing ZIP, copied data, UI samples, hashes; inventory import and isolation tests |
+| 1 | Save and understand the existing app baseline | Preserved ZIP/data/plugin inputs, hashes, tool versions, dependency inventory, UI/work-flow records and known failures |
+| 2 | Add integration test setup, fixtures and inventory tests | XML round-trip, fractional inventory import and isolated fixtures |
 | 3 | Move build and launch to Java 21 | Full source compile, boot test, Hibernate integration test |
 | 4 | Fix duplicate XML parser routes | One parser version; XML/JAXB/report parsing tests pass |
 | 5 | Fix report compile support, then run Week 1 gate | ECJ trial if needed; all available JRXML compile; current compiled reports fill |
 
-- [x] **D1:** Add JUnit, Surefire, and the separate `test/` root; keep the old app target.
-- [x] **D1:** Record money formatting, password hash, and discount behavior in 20 tests.
-- [ ] **D2:** Save the current ZIP outside `target/`; record its hash, commit, JDK, Maven, and dependency tree.
-- [ ] **D2:** Copy the seed and test data. Save the patched and original plugin separately; record both hashes.
-- [ ] **D2:** Capture login, tables, order, payment, back office, inventory, and print preview at fixed screen scale.
-- [ ] **D2:** Add Failsafe and `test-resources/`; add XML round-trip and decimal inventory import tests.
-- [ ] **D2:** Add isolated DB fixture setup and teardown; first test must prove it cannot use the live DB path.
-- [ ] **D2:** Review the system coverage table; record used screens, databases, devices, services and plugins; save settings/UI baselines and list existing failures.
-- [ ] **D3:** Use JDK 21, compiler 3.14.1, and `release=21`; remove both property and plugin Java 7 settings.
-- [ ] **D3:** Probe Hibernate without flags first. If needed, add the one documented flag to tests, every launcher, setup/proxy tools, and restart.
-- [ ] **D3:** Check restart passes the same flags; avoid relying on `sun.java.command` parsing to preserve them.
-- [ ] **D4:** Remove old Xerces 2.4.0; inspect the resolved tree and assembled `lib/`; run T03, T04, T06, T07.
-- [ ] **D5:** Trial the newer ECJ only if needed; remove the old JDT route; keep generated report language settings explicit.
-- [ ] **D5:** Compile/fill the full report set; find the source of `ItemSalesReport.jasper` or block its upgrade. Run the Week 1 gate.
+- [x] **Prework:** Add JUnit, Surefire, and the separate `test/` root; keep the old app target.
+- [x] **Prework:** Record money formatting, password hash, and discount behavior in 20 tests.
+- [ ] **D01.01:** Save the existing app ZIP outside `target/`; verify the copied file's SHA-256 matches the original and record its path. No app launch or rebuild is needed for this backup task.
+- [ ] **D01.02:** Record JDK/Maven versions, dependency inventory and the package's build commit if known; do not assume it matches today's commit.
+- [ ] **D01.03:** Copy the seed/test data and original/patched plugin JARs into baseline storage; record hashes and keep live data untouched.
+- [ ] **D01.04:** Capture login, tables, order, payment, back office, inventory and print preview at fixed scale on copied data; record existing failures and behavior evidence.
+- [ ] **D01.05:** Review system coverage; record which screens, databases, devices, services and plugins are used. Ask only for deployment facts the repository cannot establish.
+- [ ] **D01.06:** Review existing behavior tests and attach baseline evidence; record missing coverage and finish the Day 1 baseline record.
+- [ ] **D02.01:** Add Failsafe and `test-resources/`; add XML round-trip and decimal inventory import tests.
+- [ ] **D02.02:** Add isolated DB fixture setup/teardown; prove it cannot use the live DB path.
+- [ ] **D03.01:** Use JDK 21, compiler 3.14.1 and `release=21`; remove both old source/target settings; verify compilation with the existing behavior suite.
+- [ ] **D03.02:** Probe real Hibernate behavior without flags first. If needed, add the narrow documented flag to tests, launchers, setup/proxy tools and restart; run persistence checks.
+- [ ] **D03.03:** Verify restart preserves JDK/flags; avoid relying on `sun.java.command` parsing; save a runnable Day 3 candidate.
+- [ ] **D04.01:** Remove old Xerces 2.4.0; inspect resolved/packaged JARs; run T03, T04, T06 and T07.
+- [ ] **D05.01:** Trial newer ECJ only if needed; remove the old JDT route; verify explicit generated-report language settings.
+- [ ] **D05.02:** Compile/fill all available templates; recover the `ItemSalesReport.jasper` source or record its blocker; complete the Week 1 gate.
 
 **Week 1 gate:** Java 21 boot, DB round trip, import/export, and report tests pass.
 No new UI shape changes. Separate old failures from new failures in the log.
@@ -229,16 +237,16 @@ No new UI shape changes. Separate old failures from new failures in the log.
 | 9 | Trial matching JNA libraries | Native tests on the deployed OS pass |
 | 10 | Trial the JSSC fork; run Week 2 gate | Serial/device tests pass; previous tests remain green |
 
-- [ ] **D6:** Replace JAXB core/impl with runtime 2.3.9; keep one API and one activation route; run T06, T07.
-- [ ] **D6:** Test old import fixtures with non-ASCII text, decimal stock, empty fields, and invalid XML.
-- [ ] **D7:** Add matching Log4j bridges, remove Log4j 1 and duplicate JCL providers, and convert log config.
-- [ ] **D7:** Test file rollover, full exception causes, app start, and plugin errors; run T08.
-- [ ] **D8:** Replace the open HTTP version range and align HTTP Core; run T09 against a local server.
-- [ ] **D8:** Run a real sandbox TLS call for each used payment/web-service route; never use live card data.
-- [ ] **D9:** Trial JNA and JNA Platform together; test native load and all used APIs on the actual OS.
-- [ ] **D9:** Keep the old pin if hardware checks are pending; record the trial result rather than calling it passed.
-- [ ] **D10:** Replace only JSSC; verify `jssc.*` API use, device read, port release, disconnect, and timeout.
-- [ ] **D10:** Run the full suite and compare the UI baseline; resolve failures before Week 3.
+- [ ] **D06.01:** Replace JAXB core/impl with runtime 2.3.9; keep one API/activation route; run T06 and T07.
+- [ ] **D06.02:** Check old imports with non-ASCII text, decimal stock, empty fields and invalid XML.
+- [ ] **D07.01:** Align Log4j bridges, remove Log4j 1/duplicate JCL providers and convert log config; preserve logging behavior.
+- [ ] **D07.02:** Verify rollover, exception causes, startup and plugin errors with T08.
+- [ ] **D08.01:** Pin HTTP Client/Core and verify existing local service/socket contracts with T09 and related coverage rows.
+- [ ] **D08.02:** Check sandbox TLS for each used payment/web-service route; never use live card data.
+- [ ] **D09.01:** Trial matching JNA/JNA Platform; verify native load and used OS APIs.
+- [ ] **D09.02:** Gather required hardware evidence; keep unverified trial pins out of the candidate and record blockers.
+- [ ] **D10.01:** Replace only JSSC; verify API/protocol, device read, port release, disconnect and timeout.
+- [ ] **D10.02:** Run the Week 2 suite and UI comparison; resolve required failures before Week 3.
 
 **Week 2 gate:** Each retained dependency change has focused tests and a recorded
 version. Device features with no hardware proof remain blocked for release.
@@ -253,19 +261,25 @@ version. Device features with no hardware proof remain blocked for release.
 | 14 | Fix build/package plugins only where needed | ZIP has correct JARs, config, icons, reports, and plugin |
 | 15 | Full POS and UI check | Same screens and outcomes; weekly gate passes |
 
-- [ ] **D11:** Find the old inventory repair steps in history/backups; if missing, restore a repeatable script and keep the original JAR intact.
-- [ ] **D11:** Verify all plugin menu actions, license behavior, missing-plugin behavior, and duplicate-plugin detection; run T10.
-- [ ] **D12:** Save/edit inventory, stock IN/OUT, recipe deduction, imports, and reports with fractional quantities; run T05.
-- [ ] **D12:** Create, save, reopen, split, pay, and void fixture tickets; confirm totals, tax, discount, and stock effects; run T02, T04.
-- [ ] **D12:** Capture menu/modifier/pizza pricing, order types, tables, customers/delivery, cash movement, shifts, tips, and kitchen ticket states; use the coverage table to track each separate flow.
-- [ ] **D13:** Run T04/T05 for Derby, MySQL, and PostgreSQL used by the deployment; record server and driver versions.
-- [ ] **D13:** Use separate test servers/databases; unavailable engines stay unqualified and cannot be claimed as supported by this release.
-- [ ] **D14:** Build from clean output. Upgrade resources, JAR, assembly, and AntRun only when needed, one plugin per passing step.
-- [ ] **D14:** Keep both assembly profiles working; adapt old descriptor options only as required; check PAX JAR and plugin inclusion.
-- [ ] **D14:** Make app, setup, proxy, database tools, and restart choose the tested JDK and flags; run T13/T14.
-- [ ] **D15:** Run T11/T12 on the actual screen/OS; compare bounds, theme, fonts, icons, shortcuts, and printouts.
-- [ ] **D15:** Review login permissions, user transfer, back-office edits, booking/floor/customer screens, attendance/driver actions, saved settings and language/encoding; add tests for each affected flow before changes.
-- [ ] **D15:** Run `verify` and clean ZIP launch tests; document all remaining failures before Week 4.
+- [ ] **D11.01:** Find inventory repair steps in history/backups; if missing, restore a repeatable plugin-build procedure and preserve the original JAR. This does not authorize a migration automation runner.
+- [ ] **D11.02:** Verify plugin menus, licenses, missing-plugin rules and duplicate detection with T10.
+- [ ] **D12.01:** Verify fractional inventory save/edit, IN/OUT, recipes, imports and reports with T05.
+- [ ] **D12.02:** Verify ticket create/save/reopen/split/pay/void, totals and stock effects with T02/T04.
+- [ ] **D12.03:** Capture/test menu, modifier, pizza, order-type, coupon, discount and tax rules.
+- [ ] **D12.04:** Capture/test table, customer, booking and delivery state changes.
+- [ ] **D12.05:** Capture/test cash movement, shifts, tips and kitchen ticket states; track each flow in system coverage.
+- [ ] **D13.01:** Run persistence/inventory fixtures on each used database engine; record server/driver versions.
+- [ ] **D13.02:** Verify isolated server/database setup and engine-specific failures; unavailable required engines remain blocked.
+- [ ] **D14.01:** Verify the clean package build; change build plugins only if needed and one at a time, splitting the task if several fixes are required.
+- [ ] **D14.02:** Verify both assembly profiles, descriptors, resources, PAX JAR and plugin inclusion.
+- [ ] **D14.03:** Verify app/setup/proxy/database tools and restart choose the tested JDK/flags with T13/T14.
+- [ ] **D15.01:** Compare screen bounds, theme, fonts, icons, shortcuts and print layouts with T11/T12.
+- [ ] **D15.02:** Capture/test login permissions and user-transfer rules.
+- [ ] **D15.03:** Capture/test back-office edit/save/reopen and persistent settings.
+- [ ] **D15.04:** Capture/test booking, floor, customer and delivery UI actions.
+- [ ] **D15.05:** Capture/test attendance, shifts and driver UI actions.
+- [ ] **D15.06:** Verify language, currency, dates and encoding against baseline fixtures.
+- [ ] **D15.07:** Run the Week 3 verify/clean-ZIP gate and record all remaining failures.
 
 **Week 3 gate:** A fresh ZIP runs outside the IDE. Required plugin, database,
 money, stock, and screen checks pass. User settings and live data stay untouched.
@@ -280,17 +294,18 @@ money, stock, and screen checks pass. User settings and live data stay untouched
 | 19 | Buffer for proven blockers; freeze candidate | Clean build, fixed dependency tree, all required checks green |
 | 20 | Final review, docs, and next phase | A reviewable candidate and a clear pass/blocked record |
 
-- [ ] **D16:** Test receipt and kitchen print, paper size, cutter, drawer, weight read, and barcode scan where used.
-- [ ] **D16:** Test payment approve, decline, cancel, and timeout in sandbox; confirm retry does not double-record payment.
-- [ ] **D16:** Include custom/gift payments, gratuity, refund/void, drawer balances, POS socket/proxy behavior and each actually used gateway; document unused or blocked routes.
-- [ ] **D17:** Run a new install and an upgrade on data copies; compare row counts, balances, IDs, reports, and settings.
-- [ ] **D17:** Rehearse restoring the saved old ZIP and database backup together; compare schema before/after startup.
-- [ ] **D18:** Run a four-hour local test session with repeated tickets, reports, reconnects, logout/login, and restart; review timeouts, memory, threads, and open ports.
-- [ ] **D18:** Add CI for headless unit/integration tests on Java 21; keep GUI/device checks as explicit separate jobs or manual gates.
-- [ ] **D19:** Fix only blockers; if time remains, remove proved-unused duplicate JAR routes one at a time.
-- [ ] **D19:** Build from a fresh checkout plus recorded private plugin/vendor inputs; save ZIP hash and dependency tree.
-- [ ] **D20:** Complete the release checklist and run guide; record the exact next unchecked task for Path B.
-- [ ] **D20:** Produce the candidate and findings for review. Production rollout is a separate action.
+- [ ] **D16.01:** Verify used printers, paper/cutter, drawer, scale and barcode hardware.
+- [ ] **D16.02:** Verify sandbox approve/decline/cancel/timeout and retries through used gateways; no double-recorded payments.
+- [ ] **D16.03:** Verify custom/gift payments, gratuity, refund/void and drawer balances.
+- [ ] **D16.04:** Verify POS socket/proxy behavior and each used payment-service route; document unused/blocked routes.
+- [ ] **D17.01:** Verify new install and upgrade on copies; compare schema, rows, balances, IDs, reports and settings.
+- [ ] **D17.02:** Rehearse restoring the saved old app and old DB together.
+- [ ] **D18.01:** Prepare a repeatable long-session check and record a four-hour observation; if it exceeds the chosen work session, save state and resume rather than starting unattended work.
+- [ ] **D18.02:** Add Java 21 headless test CI; keep GUI/device checks separate. Scheduled migration jobs remain out of scope.
+- [ ] **D19.01:** Add a regression test and fix the next required blocker; split multiple blockers into separate child tasks. Remove unused duplicate JAR routes only if needed and proved safe.
+- [ ] **D19.02:** Build from a fresh checkout plus recorded private inputs; save ZIP hash and dependency tree.
+- [ ] **D20.01:** Complete required release/system checks and the run guide; record remaining Path B work separately.
+- [ ] **D20.02:** Present the candidate and findings for review. Do not deploy or start Path B automatically.
 
 ## 7. Tests to add
 
@@ -364,7 +379,7 @@ together; unrelated libraries may not.
 - [ ] Run a short boot, DB, inventory, and report check.
 - [ ] Pass the daily runnable gate and save a named package with its JDK, launch flags and copied-data results before marking the day Done.
 - [ ] Record passed, failed, and blocked checks separately.
-- [ ] Commit only when the step passes; otherwise fix it or restore only that step.
+- [ ] Keep a passing step reviewable; commit only when requested. If it fails, fix or isolate only that step and preserve unrelated work.
 - [ ] Update this plan with the result, remaining issue, and next command.
 
 ## 9. A more modern plan, with the same UI
