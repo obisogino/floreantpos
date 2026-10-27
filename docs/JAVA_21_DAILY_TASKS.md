@@ -15,10 +15,10 @@ Keep the test files and build changes already made; do not revert them.
 | Pace | Four weeks of planned work; dates are flexible |
 | Usage | Target at most 20% of the day's allowance; checked manually |
 | Progress | Update the status below after the requested day's work |
-| Automation | **Disabled and stopped. No automated migration run occurred.** |
+| Automation | **Removed. Work is requested manually in chat.** |
 
-The timer was created by mistake and disabled before its first run. Existing
-helper files and the separate checkout remain untouched. They are not active.
+The automation scripts and timer have been removed. No automated migration run
+occurred. Keep using this chat and this checklist to choose and track the work.
 
 ## Can the app be used every day?
 
@@ -187,3 +187,7 @@ After a manually requested workday, append an entry to `docs/JAVA_21_DAILY_RESUL
 
 Ask for a specific day, for example: **"Start Day 2."** Until then, update the
 documentation only. No timed task, test command, or migration step should run.
+
+After the requested work, update the day's status to **Done** only when its work
+and required checks are complete. If work remains, keep it **Todo** or mark it
+**Blocked** with the reason. Asking to update the plan alone does not start tests.

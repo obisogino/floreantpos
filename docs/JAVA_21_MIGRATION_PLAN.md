@@ -7,7 +7,7 @@ test files and build changes already made. Run the planned behavior/unit tests
 during manually requested workdays, before and after each affected module change.
 
 **Manual tracker:** Day 1 is Done for the initial behavior tests and test setup;
-Days 2–20 are Todo. No automation is active. Start a day only when requested.
+Days 2–20 are Todo. Automation files have been removed. Start a day only when requested in chat.
 See [daily tasks and behavior tests](JAVA_21_DAILY_TASKS.md) for each day's
 required module tests and Done/Todo checkboxes.
 Every day must read current code, write/run a baseline test, then make its change

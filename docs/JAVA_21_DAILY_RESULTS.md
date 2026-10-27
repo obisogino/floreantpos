@@ -26,3 +26,10 @@
 - Added a daily runnable gate: app-changing days need a saved runnable candidate before Done; otherwise the previous verified package remains available.
 - Java 21 candidate is targeted for Day 3; final daily-use replacement still needs whole-system acceptance.
 - Documentation update only; no app changes, builds or tests were run.
+
+## Automation cleanup — 27 October 2026
+
+- Removed the Python migration runner, its Python tests, and the local timer/service files at the user's request.
+- The workflow is manual: request a day in chat, then update its Markdown status after the requested work and checks are complete.
+- Existing Java behavior tests, test setup, app code and migration documentation remain in place.
+- No builds or tests were run during this cleanup. No automated migration run occurred.
