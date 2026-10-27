@@ -59,3 +59,38 @@ or a whole planned day; there is no one-task-per-calendar-day limit.
 - Added root `AGENTS.md` so future sessions can find the rules, inspect prerequisites, stay in scope and update evidence before marking Done.
 - First unfinished task remains **D01.01**: preserve the app ZIP outside `target/` and verify its hash. It has not been executed.
 - This update changed Markdown only. No app builds, tests, migration tasks, commits, pushes or background jobs ran.
+
+## D01.01 — Done — 27 October 2026
+
+| Item | Evidence |
+| --- | --- |
+| Request | One task: preserve the existing app ZIP and verify the copy |
+| Source | `target/floreantpos-1.4-build-20261025-164421.zip` — latest existing local ZIP by modification time |
+| Preserved ZIP | `baselines/2026-10-27/floreantpos-1.4-build-20261025-164421.zip` — repository-local, ready to add to Git |
+| Size | 55,324,806 bytes; original and backup sizes match |
+| SHA-256 | `2f01e20840d1a42ef4bdfad03c3fffda677b7110cd44e2ad89d63a0ecd55aa27` |
+| Verification | Original hash before/after copying matches the backup; source size/mtime stayed unchanged; backup checksum file saved alongside ZIP |
+| Application behavior | Not changed or launched; backup integrity does not prove the app works |
+| Builds/tests | None; only file-copy/hash verification |
+| Git / automation | No commit, push or background job |
+| Day status | Day 1 remains Todo: 1 of 6 tasks complete |
+| Next task | **D01.02** — record JDK/Maven versions, dependency inventory and package provenance |
+
+Recheck the saved ZIP from its backup folder with:
+
+```sh
+sha256sum --check floreantpos-1.4-build-20261025-164421.zip.sha256
+```
+
+The backup now lives inside the repository, outside `target/`, so a clean build
+does not remove it and it can be committed for use on another computer. Package
+source commit and runtime qualification remain part of later baseline tasks.
+
+## Portable baseline location — 27 October 2026
+
+- At the user's request, copied the exact ZIP and checksum into `baselines/2026-10-27/` inside the project; Git does not ignore these files.
+- The original external copy remains as a spare, but the documented workflow uses the repository-local copy and relative paths.
+- Rechecked SHA-256: `2f01e20840d1a42ef4bdfad03c3fffda677b7110cd44e2ad89d63a0ecd55aa27`.
+- Added `baselines/README.md` with the artifact path, checksum and content notes. The ZIP includes a modified single-user database: 173 seed data files differ; data contents are not yet fully reviewed.
+- Kept regular Git storage for this fixed 55,324,806-byte snapshot; no Git LFS setup is needed to clone it. Large-file handling can be revisited if more snapshots are added.
+- No app launch, build, test, commit or push occurred. D01.01 stays Done; D01.02 remains next.

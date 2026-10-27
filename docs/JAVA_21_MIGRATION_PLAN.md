@@ -209,9 +209,9 @@ task silently. Days 19–20 provide buffer; unfinished work may extend the plan.
 
 - [x] **Prework:** Add JUnit, Surefire, and the separate `test/` root; keep the old app target.
 - [x] **Prework:** Record money formatting, password hash, and discount behavior in 20 tests.
-- [ ] **D01.01:** Save the existing app ZIP outside `target/`; verify the copied file's SHA-256 matches the original and record its path. No app launch or rebuild is needed for this backup task.
+- [x] **D01.01:** Save the existing app ZIP in versionable `baselines/`, outside `target/`; verify the copied file's SHA-256 matches the original and record its relative path. No app launch or rebuild is needed. Evidence: 27 October 2026, D01.01 in the daily results; artifact in `baselines/2026-10-27/`.
 - [ ] **D01.02:** Record JDK/Maven versions, dependency inventory and the package's build commit if known; do not assume it matches today's commit.
-- [ ] **D01.03:** Copy the seed/test data and original/patched plugin JARs into baseline storage; record hashes and keep live data untouched.
+- [ ] **D01.03:** Copy shareable seed/test data and original/patched plugin inputs into repository-local baseline storage; record hashes, review what can be shared, and keep live data untouched.
 - [ ] **D01.04:** Capture login, tables, order, payment, back office, inventory and print preview at fixed scale on copied data; record existing failures and behavior evidence.
 - [ ] **D01.05:** Review system coverage; record which screens, databases, devices, services and plugins are used. Ask only for deployment facts the repository cannot establish.
 - [ ] **D01.06:** Review existing behavior tests and attach baseline evidence; record missing coverage and finish the Day 1 baseline record.

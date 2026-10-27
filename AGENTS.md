@@ -46,6 +46,9 @@ and any more specific instructions first. Preserve unrelated local changes.
   change scope/budget explicitly. Do not claim a hard token cap is enforced.
 - Keep the UI and business behavior unchanged. Use copied data, preserve the
   working app, and keep unrelated work intact.
+- Store shareable migration baselines inside `baselines/`, outside `target/`,
+  so they can be committed and cloned. Use repository-relative artifact paths.
+  Do not create new baseline storage outside the workspace unless requested.
 - Do not recreate automation, background jobs, or the removed Python runner.
   Do not commit, push, merge, deploy, or create agents unless requested.
 

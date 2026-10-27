@@ -4,6 +4,8 @@ Java 21 migration work is manual. See [project instructions](AGENTS.md), the
 [migration plan](docs/JAVA_21_MIGRATION_PLAN.md), and the
 [daily tracker](docs/JAVA_21_DAILY_TASKS.md). Chat requests can select one task,
 multiple tasks or a planned day; reviewing the documents starts no work.
+The [preserved baseline package](baselines/README.md) is stored inside this repo
+so it can be committed and used from another computer.
 
 **Update 7-3-22**:  Version bumps to postgresql, mysql-connector-java, & derby (security from @dependabot).  Also some changes to make build complete.
 

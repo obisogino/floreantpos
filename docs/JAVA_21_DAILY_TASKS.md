@@ -66,7 +66,7 @@ The day summaries below must follow the numbered tasks, never override them.
 
 | Setting | Value |
 | --- | --- |
-| Day 1 | **Todo** — baseline tasks are unfinished |
+| Day 1 | **Todo** — 1 of 6 tasks complete; ZIP preserved, other baseline tasks unfinished |
 | Days 2–20 | **Todo** — choose tasks or days through chat |
 | Pace | Four weeks of planned work; dates are flexible |
 | Usage | Target at most 20% of the day's allowance; checked manually |
@@ -149,7 +149,7 @@ Future test names below are planned, not existing passing tests.
 
 | Day | Status | Affected module / task | Test to write or extend before the change |
 | --- | --- | --- | --- |
-| Day 1 | Todo | Save and understand the current app baseline | Preserve ZIP/data/plugin inputs and hashes; record tool versions, used features, current UI/work flows and known failures; attach existing test evidence |
+| Day 1 | Todo — 1/6 tasks complete | Save and understand the current app baseline | D01.01 ZIP backup/hash complete; tool records, data/plugin copies, UI/work flows and remaining baseline evidence are Todo |
 | Day 2 | Todo | Integration test setup, fixtures and inventory import | Add Failsafe, isolated fixtures, XML round-trip and inventory CSV tests; use the baseline saved in Day 1 |
 | Day 3 | Todo | Java 21 build, boot, Hibernate | `PersistenceBehaviorIT`: ticket with children, reload, rollback, persisted totals; compare JDKs; add restart/flag test |
 | Day 4 | Todo | Xerces/parser routes | `XmlParserBehaviorIT`: same mapping/import/report fixtures on both parsers; keep namespaces, field values and invalid-input behavior |
@@ -172,7 +172,7 @@ Future test names below are planned, not existing passing tests.
 
 ## Progress
 
-- [ ] Day 1: Todo — current app baseline, saved inputs and behavior records
+- [ ] Day 1: Todo — 1/6 tasks complete; ZIP preserved, remaining baseline records unfinished
 - [ ] Day 2: Todo — integration tests, inventory import and fixture isolation
 - [ ] Day 3: Todo — Java 21 build, boot, persistence, restart
 - [ ] Day 4: Todo — XML parser behavior
@@ -200,12 +200,18 @@ index, not a second task queue:
 
 | ID | Task |
 | --- | --- |
-| D01.01 | Preserve app ZIP outside `target/`; verify and record its hash |
+| D01.01 | Preserve app ZIP in repository-local `baselines/`, outside `target/`; verify and record its hash |
 | D01.02 | Record tools, dependency inventory and package provenance |
 | D01.03 | Preserve seed/test data and original/patched plugin inputs |
 | D01.04 | Capture current screens/work flows and existing failures |
 | D01.05 | Record used features, engines, devices, plugins and services |
 | D01.06 | Review existing tests and complete baseline evidence |
+
+The preserved ZIP and checksum are now in
+[`baselines/2026-10-27/`](../baselines/2026-10-27/). They can be committed and
+cloned; the workflow no longer depends on a sibling folder on this computer.
+See the [baseline notes](../baselines/README.md) for the bundled database content
+and verification command. Keep future shareable baseline paths inside the repo.
 
 ## Tests already written during setup
 
